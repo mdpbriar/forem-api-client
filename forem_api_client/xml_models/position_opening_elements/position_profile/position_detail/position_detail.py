@@ -3,7 +3,7 @@ from typing import Annotated, List
 from pydantic import AfterValidator, field_validator
 from pydantic_xml import BaseXmlModel, element, wrapped
 
-from src import validators
+from forem_api_client import validators
 from forem_api_client.nomenclatures_models.contrattravail import contrat_travail
 from forem_api_client.nomenclatures_models.tempstravail import temps_travail
 from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.competencies.competency import Competency

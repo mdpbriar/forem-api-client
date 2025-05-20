@@ -1,7 +1,7 @@
 from pydantic import field_validator
 from pydantic_xml import BaseXmlModel
 
-from src import validators
+from forem_api_client import validators
 from forem_api_client.nomenclatures_models.tempstravail import temps_travail
 
 

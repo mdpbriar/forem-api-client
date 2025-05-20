@@ -3,7 +3,7 @@ from typing import Literal, Annotated
 from pydantic import AfterValidator
 from pydantic_xml import BaseXmlModel, attr
 
-from src import validators
+from forem_api_client import validators
 
 
 class IndustryCode(BaseXmlModel, tag='IndustryCode', skip_empty=True):

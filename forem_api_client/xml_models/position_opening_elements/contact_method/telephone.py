@@ -2,7 +2,7 @@ from typing import Annotated
 
 from pydantic import AfterValidator
 from pydantic_xml import BaseXmlModel, element
-from src import validators
+from forem_api_client import validators
 
 
 class Telephone(BaseXmlModel, tag="Telephone", skip_empty=True):

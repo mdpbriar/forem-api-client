@@ -3,7 +3,7 @@ from typing import Annotated
 from pydantic import AfterValidator
 from pydantic_xml import element, BaseXmlModel
 
-from src import validators
+from forem_api_client import validators
 from forem_api_client.xml_models.position_opening_elements.delivery_address import DeliveryAddress
 from forem_api_client.xml_models.position_opening_elements.recipient import Recipient
 
