@@ -1,6 +1,6 @@
 from pydantic_xml import BaseXmlModel, element
 
-from src.xml_models.person_name import PersonName
+from src.xml_models.position_opening_elements.person_name import PersonName
 
 
 class Recipient(BaseXmlModel, tag="Recipient", skip_empty=True):

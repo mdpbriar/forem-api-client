@@ -1,17 +1,19 @@
 from typing import Annotated, List
 
 from pydantic import AfterValidator, field_validator
-from pydantic_xml import BaseXmlModel, element
+from pydantic_xml import BaseXmlModel, element, wrapped
 
 from src import validators
 from src.nomenclatures_models.contrattravail import contrat_travail
 from src.nomenclatures_models.tempstravail import temps_travail
-from src.xml_models.position_profile.position_detail.competencies.competency import Competency
-from src.xml_models.position_profile.position_detail.job_category import JobCategory
-from src.xml_models.position_profile.position_detail.physical_location import PhysicalLocation
-from src.xml_models.position_profile.position_detail.industry_code import IndustryCode
-from src.xml_models.position_profile.position_detail.position_schedule import PositionSchedule
-from src.xml_models.position_profile.position_detail.shift import Shift
+from src.xml_models.position_opening_elements.position_profile.position_detail.competencies.competency import Competency
+from src.xml_models.position_opening_elements.position_profile.position_detail.experience import Experience
+from src.xml_models.position_opening_elements.position_profile.position_detail.job_category import JobCategory
+from src.xml_models.position_opening_elements.position_profile.position_detail.physical_location import PhysicalLocation
+from src.xml_models.position_opening_elements.position_profile.position_detail.industry_code import IndustryCode
+from src.xml_models.position_opening_elements.position_profile.position_detail.position_schedule import PositionSchedule
+from src.xml_models.position_opening_elements.position_profile.position_detail.remuneration_package import RemunerationPackage
+from src.xml_models.position_opening_elements.position_profile.position_detail.shift import Shift
 
 
 class PositionDetail(BaseXmlModel, tag='PositionDetail', skip_empty=True):
@@ -24,6 +26,8 @@ class PositionDetail(BaseXmlModel, tag='PositionDetail', skip_empty=True):
     position_schedules: List[PositionSchedule] = element()
     shifts: List[Shift] = element(default=None)
     competencies: List[Competency] = element()
+    remuneration_package: RemunerationPackage = element(default=None)
+    experience: Experience = wrapped('UserArea', element())
 
     @field_validator('contrat_travail')
     @classmethod

@@ -1,7 +1,7 @@
 from pydantic_xml import BaseXmlModel, attr, element
 
 from src.types import CompetencyType, mapping_competencies
-from src.xml_models.position_profile.position_detail.competencies.competency_id import CompetencyId
+from src.xml_models.position_opening_elements.position_profile.position_detail.competencies.competency_id import CompetencyId
 
 
 class Competency(BaseXmlModel, tag='Competency', skip_empty=True):

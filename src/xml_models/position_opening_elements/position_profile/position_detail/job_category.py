@@ -1,15 +1,12 @@
-from typing import Literal, Any, Union
+from typing import Literal
 
-import pandas as pd
-from lxml import etree
-from pydantic import Field, field_validator
-from pydantic_xml import BaseXmlModel, element, xml_field_serializer
+from pydantic import field_validator
+from pydantic_xml import BaseXmlModel, element
 
 from src import validators
-from src.nomenclatures_models.base import BaseNomenclature
 from src.nomenclatures_models.dimeco import dimeco
 from src.nomenclatures_models.romev3 import romev3
-from src.xml_models.position_profile.position_detail.taxonomy_name import TaxonomyName
+from src.xml_models.position_opening_elements.position_profile.position_detail.taxonomy_name import TaxonomyName
 
 
 class JobCategory(BaseXmlModel, tag='JobCategory', skip_empty=True):
