@@ -15,3 +15,7 @@ dependencies = [
 dev = [
     "pytest>=8.3.5",
 ]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["forem_api_client*"]
