@@ -19,3 +19,6 @@ dev = [
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["forem_api_client*"]
+
+[tool.setuptools.package-data]
+forem_api_client = ["nomenclatures/*"]
