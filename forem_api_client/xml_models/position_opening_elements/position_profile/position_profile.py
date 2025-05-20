@@ -2,12 +2,12 @@ from typing import List
 
 from pydantic_xml import BaseXmlModel, attr, element, wrapped
 
-from src.xml_models.position_opening_elements.position_profile.cdata_value import CDataValue
-from src.xml_models.position_opening_elements.position_profile.formatted_position_description import FormattedPositionDescription
-from src.xml_models.position_opening_elements.position_profile.how_to_apply import HowToApply
-from src.xml_models.position_opening_elements.position_profile.organization import Organization
-from src.xml_models.position_opening_elements.position_profile.position_date_info import PositionDateInfo
-from src.xml_models.position_opening_elements.position_profile.position_detail.position_detail import PositionDetail
+from forem_api_client.xml_models.position_opening_elements.position_profile.cdata_value import CDataValue
+from forem_api_client.xml_models.position_opening_elements.position_profile.formatted_position_description import FormattedPositionDescription
+from forem_api_client.xml_models.position_opening_elements.position_profile.how_to_apply import HowToApply
+from forem_api_client.xml_models.position_opening_elements.position_profile.organization import Organization
+from forem_api_client.xml_models.position_opening_elements.position_profile.position_date_info import PositionDateInfo
+from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.position_detail import PositionDetail
 
 
 class PositionProfile(BaseXmlModel, tag='PositionProfile', skip_empty=True):

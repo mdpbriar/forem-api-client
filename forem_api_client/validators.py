@@ -1,10 +1,10 @@
 from typing import Literal
 
-from src.nomenclatures_models.base import BaseNomenclature
-from src.nomenclatures_models.pays import pays
-from src.nomenclatures_models.nacebel2008 import nacebel
-from src.nomenclatures_models.dimeco import dimeco
-from src.nomenclatures_models.romev3 import romev3
+from forem_api_client.nomenclatures_models.base import BaseNomenclature
+from forem_api_client.nomenclatures_models.pays import pays
+from forem_api_client.nomenclatures_models.nacebel2008 import nacebel
+from forem_api_client.nomenclatures_models.dimeco import dimeco
+from forem_api_client.nomenclatures_models.romev3 import romev3
 
 def forbid_empty_list(values: list) -> list:
     if len(values) == 0:

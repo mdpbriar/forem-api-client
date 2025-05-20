@@ -1,8 +1,8 @@
 from pydantic import EmailStr, HttpUrl
 from pydantic_xml import BaseXmlModel, element
 
-from src.xml_models.position_opening_elements.contact_method.telephone import Telephone
-from src.xml_models.position_opening_elements.postal_address import PostalAddress
+from forem_api_client.xml_models.position_opening_elements.contact_method.telephone import Telephone
+from forem_api_client.xml_models.position_opening_elements.postal_address import PostalAddress
 
 
 class ApplicationMethod(BaseXmlModel, tag='ApplicationMethod', skip_empty=True):

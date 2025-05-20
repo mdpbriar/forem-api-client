@@ -2,7 +2,7 @@ import xml.dom.minidom
 
 from pydantic import BaseModel
 
-from src.xml_models.position_opening import PositionOpening
+from forem_api_client.xml_models.position_opening import PositionOpening
 
 
 class ForemXmlBuilder(BaseModel):

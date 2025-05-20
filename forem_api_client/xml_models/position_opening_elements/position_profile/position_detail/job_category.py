@@ -4,9 +4,9 @@ from pydantic import field_validator
 from pydantic_xml import BaseXmlModel, element
 
 from src import validators
-from src.nomenclatures_models.dimeco import dimeco
-from src.nomenclatures_models.romev3 import romev3
-from src.xml_models.position_opening_elements.position_profile.position_detail.taxonomy_name import TaxonomyName
+from forem_api_client.nomenclatures_models.dimeco import dimeco
+from forem_api_client.nomenclatures_models.romev3 import romev3
+from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.taxonomy_name import TaxonomyName
 
 
 class JobCategory(BaseXmlModel, tag='JobCategory', skip_empty=True):

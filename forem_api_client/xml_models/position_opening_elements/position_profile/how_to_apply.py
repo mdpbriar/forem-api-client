@@ -1,8 +1,8 @@
 from pydantic_xml import BaseXmlModel, element, wrapped
 
-from src.xml_models.position_opening_elements.person_name import PersonName
-from src.xml_models.position_opening_elements.position_profile.application_method import ApplicationMethod
-from src.xml_models.position_opening_elements.position_profile.cdata_value import CDataValue
+from forem_api_client.xml_models.position_opening_elements.person_name import PersonName
+from forem_api_client.xml_models.position_opening_elements.position_profile.application_method import ApplicationMethod
+from forem_api_client.xml_models.position_opening_elements.position_profile.cdata_value import CDataValue
 
 
 class HowToApply(BaseXmlModel, tag='HowToApply', skip_empty=True):

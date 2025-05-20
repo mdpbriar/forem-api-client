@@ -4,8 +4,8 @@ from pydantic import AfterValidator
 from pydantic_xml import element, BaseXmlModel
 
 from src import validators
-from src.xml_models.position_opening_elements.delivery_address import DeliveryAddress
-from src.xml_models.position_opening_elements.recipient import Recipient
+from forem_api_client.xml_models.position_opening_elements.delivery_address import DeliveryAddress
+from forem_api_client.xml_models.position_opening_elements.recipient import Recipient
 
 
 

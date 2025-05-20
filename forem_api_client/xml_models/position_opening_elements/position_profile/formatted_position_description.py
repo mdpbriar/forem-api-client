@@ -2,7 +2,7 @@ from typing import Literal
 
 from pydantic_xml import BaseXmlModel, element
 
-from src.xml_models.position_opening_elements.position_profile.cdata_value import CDataValue
+from forem_api_client.xml_models.position_opening_elements.position_profile.cdata_value import CDataValue
 
 
 class FormattedPositionDescription(BaseXmlModel, tag='FormattedPositionDescription', skip_empty=True, arbitrary_types_allowed=True):

@@ -1,8 +1,8 @@
 from pydantic_xml import BaseXmlModel, element, attr, wrapped
 
-from src.xml_models.position_opening_elements.position_profile.position_profile import PositionProfile
-from src.xml_models.position_opening_elements.position_record_info import PositionRecordInfo
-from src.xml_models.position_opening_elements.position_supplier import PositionSupplier
+from forem_api_client.xml_models.position_opening_elements.position_profile.position_profile import PositionProfile
+from forem_api_client.xml_models.position_opening_elements.position_record_info import PositionRecordInfo
+from forem_api_client.xml_models.position_opening_elements.position_supplier import PositionSupplier
 
 NSMAP = {"": "http://ns.hr-xml.org/2006-02-28", "xsi": "http://www.w3.org/2001/XMLSchema-instance"}
 

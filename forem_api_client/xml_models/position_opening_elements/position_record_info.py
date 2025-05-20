@@ -1,7 +1,7 @@
 from pydantic_xml import BaseXmlModel, element
 
-from src.xml_models.position_opening_elements.id_offre import IdOffre
-from src.xml_models.position_opening_elements.status_position import StatutPosition
+from forem_api_client.xml_models.position_opening_elements.id_offre import IdOffre
+from forem_api_client.xml_models.position_opening_elements.status_position import StatutPosition
 
 
 class PositionRecordInfo(BaseXmlModel, tag="PositionRecordInfo", skip_empty=True):

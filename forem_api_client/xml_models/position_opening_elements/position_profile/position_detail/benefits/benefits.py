@@ -1,8 +1,8 @@
 from typing import List
 from pydantic_xml import BaseXmlModel, element
 
-from src.xml_models.position_opening_elements.position_profile.position_detail.benefits.company_vehicle import CompanyVehicle
-from src.xml_models.position_opening_elements.position_profile.position_detail.benefits.benefit import Benefit
+from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.benefits.company_vehicle import CompanyVehicle
+from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.benefits.benefit import Benefit
 
 
 class Benefits(BaseXmlModel, tag='Benefits', skip_empty=True):
