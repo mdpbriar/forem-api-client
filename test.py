@@ -1,6 +1,7 @@
 from datetime import date, datetime
 
 from src.nomenclatures_models.base import BaseNomenclature
+from src.xml_builder import ForemXmlBuilder
 from src.xml_models.position_opening_elements.contact_method.contact_method import ContactMethod
 from src.xml_models.position_opening_elements.contact_method.telephone import Telephone
 from src.xml_models.position_opening_elements.entity_name import EntityName
@@ -134,16 +135,10 @@ def main():
         total_number_of_jobs=6
     )
 
-    xml_bytes = position_opening.to_xml(encoding='UTF-8')
-
-    xml_str = xml_bytes.decode('UTF-8')
-    xml_str = xml_str.replace(' lang="', ' xml:lang="')
-
-    print(xml_str)
+    xml = ForemXmlBuilder(position_opening=position_opening).build()
+    print(xml)
 
 
-    # dom = xml.dom.minidom.parseString(xml_str)
-    # print(dom.toprettyxml())
 
 
 if __name__ == '__main__':
