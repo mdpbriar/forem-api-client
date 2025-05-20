@@ -37,8 +37,9 @@ from src.xml_models.position_opening_elements.status_position import StatutPosit
 from src.xml_models.position_opening_elements.supplier_id import SupplierId
 
 
-def main():
+def test_position_opening():
 
+    result = """<PositionOpening xmlns="http://ns.hr-xml.org/2006-02-28" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="FR"><PositionRecordInfo><Id idOwner="test"><IdValue>5</IdValue></Id><Status validFrom="2025-05-20" validTo="2026-02-01">Active</Status></PositionRecordInfo><PositionSupplier><SupplierId idOwner="PartnerCode"><IdValue>test</IdValue></SupplierId><EntityName><![CDATA[Salut]]></EntityName><ContactMethod><Telephone><SubscriberNumber>746846</SubscriberNumber></Telephone><InternetEmailAddress>test@test.be</InternetEmailAddress><InternetWebAddress>https://test.be/</InternetWebAddress><PostalAddress><PostalCode>12345</PostalCode><CountryCode>BE</CountryCode><Recipient><OrganizationName>Test</OrganizationName><PersonName><FamilyName>Test</FamilyName></PersonName></Recipient></PostalAddress></ContactMethod></PositionSupplier><PositionProfile xml:lang="FR"><PositionDateInfo><StartDate>2025-05-20</StartDate><as_soon_as_possible>false</as_soon_as_possible></PositionDateInfo><Organization><OrganizationName>Test</OrganizationName><ContactMethod><Telephone><SubscriberNumber>746846</SubscriberNumber></Telephone><InternetEmailAddress>test@test.be</InternetEmailAddress><InternetWebAddress>https://test.be/</InternetWebAddress><PostalAddress><PostalCode>12345</PostalCode><CountryCode>BE</CountryCode><Recipient><OrganizationName>Test</OrganizationName><PersonName><FamilyName>Test</FamilyName></PersonName></Recipient></PostalAddress></ContactMethod></Organization><PositionDetail><IndustryCode classificationName="NaceBel2008">0111002</IndustryCode><PhysicalLocation><PostalAddress><PostalCode>12345</PostalCode><CountryCode>BE</CountryCode><Recipient><OrganizationName>Test</OrganizationName><PersonName><FamilyName>Test</FamilyName></PersonName></Recipient></PostalAddress></PhysicalLocation><JobCategory><TaxonomyName version="1.0">ROMEV3</TaxonomyName><CategoryCode>A1101</CategoryCode><CategoryDescription>Conduite d'engins d'exploitation agricole et forestière</CategoryDescription></JobCategory><JobCategory><TaxonomyName version="1.0">DIMECO</TaxonomyName><CategoryCode>N410301-4</CategoryCode><CategoryDescription>Chauffeur / Chauffeuse d'autocar</CategoryDescription></JobCategory><PositionTitle>Aide internationale</PositionTitle><PositionClassification>G</PositionClassification><PositionSchedule>Full Time</PositionSchedule><PositionSchedule>x:Day Work</PositionSchedule><Shift shiftPeriod="matin"><Hours>4</Hours><StartTime>8:00</StartTime><EndTime>12:00</EndTime></Shift><Competency name="Language"><CompetencyId description="Français" id="fr"/><TaxonomyId description="ISO 639-1 norme internationale de codification des noms de langues en 2 chiffres" id="ISO 639-1"/></Competency><RemunerationPackage><BasePay baseInterval="Monthly" currencyCode="EUR"><BasePayAmountMin>1200.0</BasePayAmountMin><BasePayAmountMax>1800.0</BasePayAmountMax></BasePay><Benefits><Insurance type="Hospitalisations">true</Insurance><CompanyVehicle companyOffered="true"/><OtherBenefits type="Test">true</OtherBenefits></Benefits></RemunerationPackage><UserArea><Experience unitOfMeasure="Years">6</Experience></UserArea></PositionDetail><FormattedPositionDescription><Name>companyPromotionalText</Name><Value><![CDATA[Test]]></Value></FormattedPositionDescription><HowToApply><PersonName><FamilyName>Test</FamilyName></PersonName><ApplicationMethod><InternetEmailAddress>test@test.be</InternetEmailAddress></ApplicationMethod><UserArea><Comments><![CDATA[Test]]></Comments><ContentPostedInformation><![CDATA[Test]]></ContentPostedInformation></UserArea></HowToApply></PositionProfile><NumberToFill>4</NumberToFill><UserArea><TotalNumberOfJobs>6</TotalNumberOfJobs></UserArea></PositionOpening>"""
     recipient = Recipient(
         organization_name="Test",
         person_name=PersonName(family_name="Test")
@@ -139,12 +140,5 @@ def main():
     xml_str = xml_bytes.decode('UTF-8')
     xml_str = xml_str.replace(' lang="', ' xml:lang="')
 
-    print(xml_str)
+    assert xml_str == result
 
-
-    # dom = xml.dom.minidom.parseString(xml_str)
-    # print(dom.toprettyxml())
-
-
-if __name__ == '__main__':
-    main()
