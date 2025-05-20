@@ -1,0 +1,9 @@
+from src.nomenclatures_models.base import BaseNomenclature
+
+
+class Competence(BaseNomenclature):
+
+    file = 'competence'
+
+
+competence = Competence()
