@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: forem-api-client
-Version: 0.1.2
+Version: 0.2.0
 Summary: Add your description here
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
@@ -8,3 +8,4 @@ Requires-Dist: pandas>=2.2.3
 Requires-Dist: pydantic[email]>=2.11.4
 Requires-Dist: pydantic-xml>=2.17.0
 Requires-Dist: lxml>=5.4.0
+Requires-Dist: httpx>=0.28.1
