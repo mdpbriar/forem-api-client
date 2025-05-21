@@ -2,6 +2,7 @@ import xml.dom.minidom
 from typing import Optional
 import httpx
 from httpx import URL
+
 from forem_api_client.xml_models.position_opening import PositionOpening
 
 
@@ -11,9 +12,9 @@ class ForemXmlBuilder:
     api_key: str = None
     client: httpx.AsyncClient
 
-    def __init__(self, position_opening: PositionOpening, api_url: URL = None, api_key: Optional[str] = None):
+    def __init__(self, position_opening: PositionOpening, api_url: str = None, api_key: Optional[str] = None):
         self.position_opening = position_opening
-        self.api_url = api_url
+        self.api_url = URL(api_url)
         self.api_key = api_key
         if self.api_url:
             self.client = httpx.AsyncClient(base_url=self.api_url,
