@@ -135,7 +135,7 @@ def main():
         total_number_of_jobs=6
     )
 
-    xml = ForemXmlBuilder(position_opening=position_opening).build()
+    xml = ForemXmlBuilder(position_opening=position_opening).build_xml()
     print(xml)
 
 
