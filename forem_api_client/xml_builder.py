@@ -1,14 +1,15 @@
 import xml.dom.minidom
+from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, AnyHttpUrl
 
 from forem_api_client.xml_models.position_opening import PositionOpening
 
 
 class ForemXmlBuilder(BaseModel):
     position_opening: PositionOpening
-    api_url: str = None
-    api_key: str = None
+    api_url: Optional[AnyHttpUrl] = None
+    api_key: Optional[str] = None
 
 
     def build(self) -> bytes:
