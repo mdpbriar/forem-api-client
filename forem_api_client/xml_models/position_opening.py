@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic_xml import BaseXmlModel, element, attr, wrapped
 
 from forem_api_client.xml_models.position_opening_elements.position_profile.position_profile import PositionProfile
@@ -14,6 +16,6 @@ class PositionOpening(BaseXmlModel, tag="PositionOpening", skip_empty=True, nsma
     position_record_info: PositionRecordInfo = element()
     position_supplier: PositionSupplier = element()
     position_profile: PositionProfile = element()
-    number_to_fill: int = element(tag='NumberToFill', default=None)
-    total_number_of_jobs: int = wrapped('UserArea', element(tag='TotalNumberOfJobs', default=None))
+    number_to_fill: Optional[int] = element(tag='NumberToFill', default=None)
+    total_number_of_jobs: Optional[int] = wrapped('UserArea', element(tag='TotalNumberOfJobs', default=None))
 

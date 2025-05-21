@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import EmailStr, HttpUrl
 from pydantic_xml import BaseXmlModel, element
 
@@ -7,7 +9,7 @@ from forem_api_client.xml_models.position_opening_elements.postal_address import
 
 class ApplicationMethod(BaseXmlModel, tag='ApplicationMethod', skip_empty=True):
 
-    telephone: Telephone = element(tag='Telephone', default=None)
-    internet_email_address: EmailStr = element(tag='InternetEmailAddress', default=None)
-    internet_web_address: HttpUrl = element(tag='InternetWebAddress', default=None)
-    postal_address: PostalAddress = element(default=None)
+    telephone: Optional[Telephone] = element(tag='Telephone', default=None)
+    internet_email_address: Optional[EmailStr] = element(tag='InternetEmailAddress', default=None)
+    internet_web_address: Optional[HttpUrl] = element(tag='InternetWebAddress', default=None)
+    postal_address: Optional[PostalAddress] = element(default=None)
