@@ -1,4 +1,4 @@
-from typing import Annotated, List
+from typing import Annotated, List, Optional
 
 from pydantic import AfterValidator, field_validator
 from pydantic_xml import BaseXmlModel, element, wrapped
@@ -24,9 +24,9 @@ class PositionDetail(BaseXmlModel, tag='PositionDetail', skip_empty=True):
     position_title: str = element(tag='PositionTitle')
     contrat_travail: str = element(tag='PositionClassification')
     position_schedules: List[PositionSchedule] = element()
-    shifts: List[Shift] = element(default=None)
+    shifts: Optional[List[Shift]] = element(default=None)
     competencies: List[Competency] = element()
-    remuneration_package: RemunerationPackage = element(default=None)
+    remuneration_package: Optional[RemunerationPackage] = element(default=None)
     experience: Experience = wrapped('UserArea', element())
 
     @field_validator('contrat_travail')

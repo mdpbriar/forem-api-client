@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from pydantic_xml import BaseXmlModel, attr, element, wrapped
 
@@ -18,6 +18,6 @@ class PositionProfile(BaseXmlModel, tag='PositionProfile', skip_empty=True):
     position_detail: PositionDetail = element()
     formatted_descriptions: List[FormattedPositionDescription] = element()
     how_to_apply: HowToApply = element()
-    comments: CDataValue = wrapped('UserArea', element(tag='Comments', default=None))
-    selection_procedure: CDataValue = wrapped('UserArea', element(tag='SelectionProcedure', default=None))
+    comments: Optional[CDataValue] = wrapped('UserArea', element(tag='Comments', default=None))
+    selection_procedure: Optional[CDataValue] = wrapped('UserArea', element(tag='SelectionProcedure', default=None))
 
