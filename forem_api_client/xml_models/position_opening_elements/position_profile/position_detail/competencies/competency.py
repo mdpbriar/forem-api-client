@@ -24,7 +24,7 @@ class Competency(BaseXmlModel, tag='Competency', skip_empty=True):
         return value
 
     @classmethod
-    def make(cls, competency_type: CompetencyType, competency_id: int|str, competency_evidence: int = None):
+    def make(cls, competency_type: CompetencyType, competency_id: int|str, competency_evidence: Optional[int] = None):
 
         # On récupère le type de nomenclature correspondante
         nomenclature = mapping_competencies.get(competency_type)
