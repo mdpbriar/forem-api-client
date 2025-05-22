@@ -108,7 +108,7 @@ def main():
                     Shift(shift_period='matin', hours='4', start_time='8:00', end_time='12:00'),
                 ],
                 competencies=[
-                    Competency.make(competency_type='Language', competency_id='fr'),
+                    Competency.make(competency_type='Language', competency_id='fr', competency_evidence=5),
                 ],
                 remuneration_package=RemunerationPackage(
                     base_pay=BasePay(amount_min=1200, amount_max=1800),
