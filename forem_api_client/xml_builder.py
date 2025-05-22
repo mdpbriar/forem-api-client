@@ -14,7 +14,8 @@ class ForemXmlBuilder:
 
     def __init__(self, position_opening: PositionOpening, api_url: str = None, api_key: Optional[str] = None):
         self.position_opening = position_opening
-        self.api_url = URL(api_url)
+        if api_url:
+            self.api_url = URL(api_url)
         self.api_key = api_key
         if self.api_url:
             self.client = httpx.AsyncClient(base_url=self.api_url,
