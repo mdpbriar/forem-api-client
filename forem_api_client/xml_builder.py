@@ -25,14 +25,19 @@ class ForemXmlBuilder:
                                             })
 
 
-    def build_xml(self) -> bytes:
+    def build_xml(self) -> str:
         # trick pour remplacer lang par xml:lang, à remplacer dans une future version de pydantic-xml
-        xml_bytes = self.position_opening.to_xml(encoding='UTF-8')
+        xml_bytes = self.position_opening.to_xml(encoding='UTF-8', xml_declaration=True)
         xml_str = xml_bytes.decode('UTF-8')
         xml_str = xml_str.replace(' lang="', ' xml:lang="')
 
-        dom = xml.dom.minidom.parseString(xml_str)
+        return xml_str
+
+
+    def xml_pretty_print(self):
+        dom = xml.dom.minidom.parseString(self.build_xml())
         return dom.toxml(encoding='UTF-8')
+
 
     def _check_api_credentials(self):
         if not self.api_url:
