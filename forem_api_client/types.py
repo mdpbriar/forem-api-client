@@ -17,3 +17,7 @@ mapping_competencies = {
     'Proven Experience': proven_experience,
     'Office Skills':competence_numerique
 }
+
+ForemDataset: TypeAlias = Literal['langue', 'nacebel2008', 'romev3', 'dimeco', 'contrattravail',
+                'tempstravail', 'niveauetude', 'permisconduire', 'competencenumerique',
+                'competence', 'pays', 'localisation', 'codepostal']

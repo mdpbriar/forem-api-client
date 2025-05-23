@@ -1,7 +1,7 @@
 [project]
 name = "forem-api-client"
-version = "0.2.3"
-description = "Add your description here"
+version = "0.3.0"
+description = "Client for the forem API, xml builder"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

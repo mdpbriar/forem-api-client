@@ -4,6 +4,7 @@ import httpx
 from httpx import URL
 
 from forem_api_client.xml_models.position_opening import PositionOpening
+from forem_api_client.types import ForemDataset
 
 
 class ForemXmlBuilder:
@@ -12,8 +13,10 @@ class ForemXmlBuilder:
     api_key: str = None
     client: httpx.AsyncClient
 
-    def __init__(self, position_opening: PositionOpening, api_url: str = None, api_key: Optional[str] = None):
-        self.position_opening = position_opening
+    def __init__(self, position_opening: PositionOpening = None, api_url: str = None, api_key: Optional[str] = None):
+
+        if self.position_opening:
+            self.position_opening = position_opening
         if api_url:
             self.api_url = URL(api_url)
         self.api_key = api_key
@@ -26,6 +29,8 @@ class ForemXmlBuilder:
 
 
     def build_xml(self) -> str:
+        if not self.position_opening:
+            raise AttributeError("PositionOpening must be set before building XML")
         # trick pour remplacer lang par xml:lang, à remplacer dans une future version de pydantic-xml
         xml_bytes = self.position_opening.to_xml(encoding='UTF-8', xml_declaration=True)
         xml_str = xml_bytes.decode('UTF-8')
@@ -56,6 +61,14 @@ class ForemXmlBuilder:
     async def send_position_opening(self):
         self._check_api_credentials()
         r = await self.client.post('/OffresEmploi', content=self.build_xml() )
+        r.raise_for_status()
+
+        return r.content
+
+
+    async def get_dataset(self, dataset: ForemDataset, version: str = '1.0'):
+        self._check_api_credentials()
+        r = await self.client.get(f"/OffresEmploi/OpenData/{version}/{dataset}")
         r.raise_for_status()
 
         return r.content
