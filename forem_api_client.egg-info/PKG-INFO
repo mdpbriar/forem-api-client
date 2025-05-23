@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: forem-api-client
-Version: 0.3.0
+Version: 0.3.1
 Summary: Client for the forem API, xml builder
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown

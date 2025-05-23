@@ -15,7 +15,7 @@ class ForemXmlBuilder:
 
     def __init__(self, position_opening: PositionOpening = None, api_url: str = None, api_key: Optional[str] = None):
 
-        if self.position_opening:
+        if position_opening:
             self.position_opening = position_opening
         if api_url:
             self.api_url = URL(api_url)
