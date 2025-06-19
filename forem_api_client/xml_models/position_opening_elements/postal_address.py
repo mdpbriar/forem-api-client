@@ -10,8 +10,8 @@ from forem_api_client.xml_models.position_opening_elements.recipient import Reci
 
 
 class PostalAddress(BaseXmlModel, tag='PostalAddress', skip_empty=True):
-    postal_code: str = element(tag="PostalCode")
     country_code: Annotated[str, AfterValidator(validators.validate_country_code)] = element(tag="CountryCode")
+    postal_code: str = element(tag="PostalCode")
     municipality: Optional[str] = element(tag="Municipality", default=None)
     delivery_address: Optional[DeliveryAddress] = element(default=None)
     recipient : Optional[Recipient] = element(default=None)

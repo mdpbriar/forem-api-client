@@ -16,6 +16,8 @@ from forem_api_client.xml_models.position_opening_elements.position_profile.posi
 from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.benefits.company_vehicle import CompanyVehicle
 from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.benefits.benefit import Benefit
 from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.competencies.competency import Competency
+from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.competencies.numeric_value import \
+    NumericValue
 from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.experience import Experience
 from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.job_category import JobCategory
 from forem_api_client.xml_models.position_opening_elements.position_profile.position_detail.physical_location import PhysicalLocation
@@ -108,7 +110,13 @@ def main():
                     Shift(shift_period='matin', hours='4', start_time='8:00', end_time='12:00'),
                 ],
                 competencies=[
-                    Competency.make(competency_type='Language', competency_id='fr', competency_evidence=5),
+                    Competency.make(
+                        competency_type='Drivers License',
+                        competency_id='AM',
+                        competency_evidence=NumericValue(
+                            value=5,
+                            minValue=2,
+                        )),
                 ],
                 remuneration_package=RemunerationPackage(
                     base_pay=BasePay(amount_min=1200, amount_max=1800),
