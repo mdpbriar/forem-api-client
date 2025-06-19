@@ -10,6 +10,7 @@ from .shift import Shift
 from .taxonomy_name import TaxonomyName
 from .competencies.competency import Competency
 from .competencies.competency_id import CompetencyId
+from .competencies.numeric_value import NumericValue
 from .benefits.benefit import Benefit
 from .benefits.benefits import Benefits
 from .benefits.company_vehicle import CompanyVehicle

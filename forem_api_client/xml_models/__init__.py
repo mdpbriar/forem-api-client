@@ -1,4 +1,4 @@
-from .position_opening_elements.position_profile.position_detail import BasePay, Experience, IndustryCode, JobCategory, PhysicalLocation, PositionDetail, PositionSchedule, RemunerationPackage, Shift, TaxonomyName, Competency, CompetencyId, Benefit, Benefits, CompanyVehicle
+from .position_opening_elements.position_profile.position_detail import BasePay, Experience, IndustryCode, JobCategory, PhysicalLocation, PositionDetail, PositionSchedule, RemunerationPackage, Shift, TaxonomyName, Competency, CompetencyId, NumericValue, Benefit, Benefits, CompanyVehicle
 from .position_opening_elements.position_profile import ApplicationMethod, CDataValue, FormattedPositionDescription, HowToApply, Organization, PositionDateInfo, PositionProfile
 from .position_opening_elements.contact_method import ContactMethod, Telephone
 from .position_opening import PositionOpening
