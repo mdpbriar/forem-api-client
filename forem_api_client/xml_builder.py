@@ -24,7 +24,7 @@ class ForemXmlBuilder:
         if self.api_url:
             self.client = httpx.AsyncClient(base_url=self.api_url,
                                             headers={
-                                                'Content-Type': 'text/xml; charset=UTF8',
+                                                'Content-Type': 'application/xml',
                                                 'Ocp-Apim-Subscription-Key': self.api_key,
                                             })
 
