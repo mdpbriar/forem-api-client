@@ -42,6 +42,10 @@ class BaseNomenclature:
 
         return pd.DataFrame(data['values'])
 
+    def get_options(self):
+        df = self.get_dataframe()
+        return df.to_dict(orient='records')
+
 
     def validate_id(self, value: str):
         df = self.data

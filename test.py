@@ -1,6 +1,8 @@
 from datetime import date, datetime
 
 from forem_api_client.nomenclatures_models.base import BaseNomenclature
+from forem_api_client.nomenclatures_models.dimeco import Dimeco
+from forem_api_client.nomenclatures_models.romev3 import RomeV3
 from forem_api_client.xml_builder import ForemXmlBuilder
 from forem_api_client.xml_models.position_opening_elements.contact_method.contact_method import ContactMethod
 from forem_api_client.xml_models.position_opening_elements.contact_method.telephone import Telephone
@@ -41,6 +43,7 @@ from forem_api_client.xml_models.position_opening_elements.supplier_id import Su
 
 
 def main():
+
 
     recipient = Recipient(
         organization_name="Test",
