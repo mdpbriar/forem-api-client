@@ -1,7 +1,8 @@
 import xml.dom.minidom
 from typing import Optional
 import httpx
-from httpx import URL
+import xmltodict
+from httpx import URL, HTTPError
 
 from forem_api_client.xml_models.position_opening import PositionOpening
 from forem_api_client.types import ForemDataset
@@ -55,7 +56,14 @@ class ForemXmlBuilder:
         r = await self.client.post('/OffresEmploi/Validation', content=self.build_xml() )
         r.raise_for_status()
 
-        return r.content
+        response = xmltodict.parse(r.content)
+        if (validation_result := response.get('PositionOpeningValidationResult', None)) is None:
+            raise HTTPError("Pas de résultat de validation renvoyé par l'API")
+
+        if errors := validation_result.get('Errors', None):
+            raise HTTPError(errors)
+
+        return validation_result
 
 
     async def send_position_opening(self):
