@@ -1,11 +1,16 @@
 import xml.dom.minidom
-from typing import Optional
+from enum import Enum
+from typing import Optional, Literal
 import httpx
 import xmltodict
 from httpx import URL, HTTPError, Response
 
 from forem_api_client.xml_models.position_opening import PositionOpening
 from forem_api_client.types import ForemDataset
+
+class Operation(Enum):
+    VALIDATION = 'PositionOpeningValidationResult'
+    CREATION = 'PositionOpeningResult'
 
 
 class ForemXmlBuilder:
@@ -52,7 +57,7 @@ class ForemXmlBuilder:
             raise ValueError('API key must be set')
 
 
-    def _get_validation(self, r: Response):
+    def _get_validation(self, r: Response, operation: Operation = Operation.VALIDATION):
         """
         Fonction pour vérifier la validation de l'API du Forem
 
@@ -60,7 +65,7 @@ class ForemXmlBuilder:
         :return:
         """
         response = xmltodict.parse(r.content)
-        if (validation_result := response.get('PositionOpeningValidationResult', None)) is None:
+        if (validation_result := response.get(operation.value, None)) is None:
             raise HTTPError("Pas de résultat de validation renvoyé par l'API")
 
         if errors := validation_result.get('Errors', None):
@@ -82,7 +87,7 @@ class ForemXmlBuilder:
         r = await self.client.post('/OffresEmploi', content=self.build_xml() )
         r.raise_for_status()
 
-        return self._get_validation(r)
+        return self._get_validation(r, operation=Operation.CREATION)
 
 
     async def get_dataset(self, dataset: ForemDataset, version: str = '1.0'):
